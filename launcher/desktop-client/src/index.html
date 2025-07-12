@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fera Launcher</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Custom Title Bar -->
+    <div class="title-bar">
+        <div class="title-bar-left">
+            <div class="logo-small">FERA</div>
+            <div class="title-text">Launcher</div>
+        </div>
+        <div class="title-bar-right">
+            <button class="title-btn" id="minimizeBtn">
+                <i class="fas fa-window-minimize"></i>
+            </button>
+            <button class="title-btn" id="maximizeBtn">
+                <i class="fas fa-window-maximize"></i>
+            </button>
+            <button class="title-btn close-btn" id="closeBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="nav-menu">
+                <div class="nav-item active" data-tab="home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+                <div class="nav-item" data-tab="play">
+                    <i class="fas fa-play"></i>
+                    <span>Play</span>
+                </div>
+                <div class="nav-item" data-tab="shop">
+                    <i class="fas fa-store"></i>
+                    <span>Shop</span>
+                </div>
+                <div class="nav-item" data-tab="profile">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </div>
+                <div class="nav-item" data-tab="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+            </div>
+            
+            <!-- User Info -->
+            <div class="user-info" id="userInfo">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <div class="username" id="username">Guest</div>
+                    <div class="vbucks" id="vbucks">
+                        <i class="fas fa-coins"></i>
+                        <span id="vbucksAmount">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="content-area">
+            <!-- Home Tab -->
+            <div class="tab-content active" id="home">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h1>Welcome to Fera</h1>
+                        <p>Experience Fortnite like never before with custom content, exclusive features, and a thriving community.</p>
+                        <button class="cta-button" id="playButton">
+                            <i class="fas fa-play"></i>
+                            Launch Game
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="news-section">
+                    <h2>Latest News</h2>
+                    <div class="news-grid" id="newsGrid">
+                        <!-- News items will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Play Tab -->
+            <div class="tab-content" id="play">
+                <div class="game-section">
+                    <div class="game-header">
+                        <h2>Game Status</h2>
+                        <div class="game-actions">
+                            <button class="btn btn-secondary" id="selectDirectoryBtn">
+                                <i class="fas fa-folder"></i>
+                                Select Directory
+                            </button>
+                            <button class="btn btn-primary" id="downloadBtn">
+                                <i class="fas fa-download"></i>
+                                Download Game
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="game-status-card">
+                        <div class="status-info">
+                            <div class="status-item">
+                                <span class="label">Status:</span>
+                                <span class="value" id="gameStatus">Not Installed</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="label">Version:</span>
+                                <span class="value" id="gameVersion">-</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="label">Path:</span>
+                                <span class="value" id="gamePath">-</span>
+                            </div>
+                        </div>
+                        <div class="download-progress" id="downloadProgress" style="display: none;">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <div class="progress-text" id="progressText">0%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="server-status">
+                        <h3>Server Status</h3>
+                        <div class="server-grid" id="serverGrid">
+                            <!-- Server status items will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shop Tab -->
+            <div class="tab-content" id="shop">
+                <div class="shop-header">
+                    <h2>Item Shop</h2>
+                    <div class="shop-timer" id="shopTimer">
+                        <i class="fas fa-clock"></i>
+                        <span id="timeRemaining">Loading...</span>
+                    </div>
+                </div>
+                
+                <div class="shop-grid" id="shopGrid">
+                    <!-- Shop items will be populated here -->
+                </div>
+            </div>
+
+            <!-- Profile Tab -->
+            <div class="tab-content" id="profile">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="profileUsername">Guest</h2>
+                        <p id="profileEmail">Not logged in</p>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Wins</span>
+                                <span class="stat-value" id="profileWins">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Kills</span>
+                                <span class="stat-value" id="profileKills">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Level</span>
+                                <span class="stat-value" id="profileLevel">1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="btn btn-primary" id="loginBtn">Login</button>
+                        <button class="btn btn-secondary" id="logoutBtn" style="display: none;">Logout</button>
+                    </div>
+                </div>
+                
+                <div class="cosmetics-section">
+                    <h3>My Cosmetics</h3>
+                    <div class="cosmetics-grid" id="cosmeticsGrid">
+                        <!-- Cosmetics will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div class="tab-content" id="settings">
+                <div class="settings-header">
+                    <h2>Settings</h2>
+                </div>
+                
+                <div class="settings-sections">
+                    <div class="settings-section">
+                        <h3>General</h3>
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="autoUpdateSetting">
+                                <span>Auto-update launcher</span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="discordRPCSetting">
+                                <span>Discord Rich Presence</span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="notificationsSetting">
+                                <span>Enable notifications</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Appearance</h3>
+                        <div class="setting-item">
+                            <label>
+                                <span>Theme</span>
+                                <select id="themeSetting">
+                                    <option value="dark">Dark</option>
+                                    <option value="light">Light</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label>
+                                <span>Language</span>
+                                <select id="languageSetting">
+                                    <option value="en">English</option>
+                                    <option value="es">Spanish</option>
+                                    <option value="fr">French</option>
+                                    <option value="de">German</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>About</h3>
+                        <div class="about-info">
+                            <p><strong>Fera Launcher</strong></p>
+                            <p>Version: <span id="appVersion">1.0.0</span></p>
+                            <p>Created by: Epsy</p>
+                            <div class="about-links">
+                                <button class="btn btn-link" id="discordLink">
+                                    <i class="fab fa-discord"></i>
+                                    Discord
+                                </button>
+                                <button class="btn btn-link" id="websiteLink">
+                                    <i class="fas fa-globe"></i>
+                                    Website
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Login to Fera</h3>
+                <button class="modal-close" id="loginModalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="rememberMe">
+                            <span>Remember me</span>
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-link" id="registerLink">
+                            Don't have an account? Register
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Modal -->
+    <div class="modal" id="updateModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Update Available</h3>
+            </div>
+            <div class="modal-body">
+                <p>A new version of Fera Launcher is available. Would you like to update now?</p>
+                <div class="update-progress" id="updateProgress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="updateProgressFill"></div>
+                    </div>
+                    <div class="progress-text" id="updateProgressText">0%</div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="updateNowBtn">Update Now</button>
+                <button class="btn btn-secondary" id="updateLaterBtn">Later</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification System -->
+    <div class="notification-container" id="notificationContainer">
+        <!-- Notifications will be added here -->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

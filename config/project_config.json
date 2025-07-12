@@ -1,0 +1,136 @@
+{
+  "project": {
+    "name": "Fortnite Chapter 2 Season 5 Project",
+    "version": "1.0.0",
+    "description": "OGFN project for Chapter 2 Season 5 (v15.00 - v15.50)",
+    "author": "Epsy",
+    "discord": "https://discord.gg/TCpKNe8h"
+  },
+  "game_version": {
+    "chapter": 2,
+    "season": 5,
+    "build_min": "15.00",
+    "build_max": "15.50",
+    "engine": "UE4.26"
+  },
+  "paths": {
+    "assets": "./assets",
+    "game_files": "./assets/game_files",
+    "extracted": "./assets/extracted",
+    "textures": "./assets/textures",
+    "models": "./assets/models",
+    "audio": "./assets/audio",
+    "maps": "./assets/maps",
+    "tools": "./tools",
+    "output": "./build"
+  },
+  "file_types": {
+    "pak": {
+      "extension": ".pak",
+      "description": "Unreal Engine PAK archives",
+      "priority": 1
+    },
+    "ucas": {
+      "extension": ".ucas",
+      "description": "Unreal Engine container archive",
+      "priority": 2
+    },
+    "utoc": {
+      "extension": ".utoc",
+      "description": "Unreal Engine table of contents",
+      "priority": 2
+    },
+    "uasset": {
+      "extension": ".uasset",
+      "description": "Unreal Engine asset files",
+      "priority": 3
+    },
+    "umap": {
+      "extension": ".umap",
+      "description": "Unreal Engine map files",
+      "priority": 3
+    }
+  },
+  "season5_specifics": {
+    "important_characters": [
+      "Mando",
+      "Mancake", 
+      "Kondor",
+      "Lexa",
+      "Reese"
+    ],
+    "exotic_weapons": [
+      "Mandalorian_Rifle",
+      "Boom_Sniper_Rifle",
+      "Dragons_Breath_Shotgun",
+      "Shadow_Tracker",
+      "Hop_Rock_Dualies"
+    ],
+    "new_mechanics": [
+      "Gold_Bars",
+      "Bounty_System",
+      "Crafting_System",
+      "NPC_Interactions"
+    ],
+    "map_changes": [
+      "Desert_Biome",
+      "Butter_Barn",
+      "Colosseum",
+      "Stealthy_Stronghold",
+      "Crashed_Ships"
+    ]
+  },
+  "extraction": {
+    "priority_assets": [
+      "Characters/",
+      "Weapons/",
+      "Maps/",
+      "Items/GameplayItems/",
+      "UI/Season5/",
+      "Audio/Music/Season5/"
+    ],
+    "skip_patterns": [
+      "*.bak",
+      "*.tmp",
+      "*/Temp/",
+      "*/Cache/"
+    ]
+  },
+  "tools": {
+    "fmodel": {
+      "enabled": true,
+      "path": "",
+      "version": "4.x"
+    },
+    "umodel": {
+      "enabled": true,
+      "path": "",
+      "version": "latest"
+    },
+    "custom_extractors": {
+      "enabled": true,
+      "path": "./tools/extractors/"
+    }
+  },
+  "development": {
+    "languages": {
+      "cpp": {
+        "enabled": true,
+        "compiler": "gcc",
+        "standard": "c++17"
+      },
+      "csharp": {
+        "enabled": true,
+        "framework": ".NET 5.0"
+      },
+      "python": {
+        "enabled": true,
+        "version": "3.8+"
+      },
+      "dart": {
+        "enabled": true,
+        "version": "2.17+"
+      }
+    }
+  }
+}
