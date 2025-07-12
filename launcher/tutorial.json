@@ -1,0 +1,600 @@
+{
+  "tutorial": {
+    "title": "Fera Launcher - Complete Setup Guide",
+    "version": "1.0.0",
+    "last_updated": "2024-01-15",
+    "sections": [
+      {
+        "id": "overview",
+        "title": "📖 Overview",
+        "description": "Complete guide to download, setup, and use the Fera Launcher",
+        "content": [
+          "The Fera Launcher is your gateway to the custom Fortnite private server experience",
+          "This tutorial covers everything from initial download to playing your first match",
+          "Prerequisites: Windows 10+, macOS 10.15+, or Ubuntu 18.04+"
+        ]
+      },
+      {
+        "id": "developer_setup",
+        "title": "🛠️ Developer Setup (For Server Owners)",
+        "description": "How to set up the launcher for development and customization",
+        "steps": [
+          {
+            "step": 1,
+            "title": "Install Prerequisites",
+            "description": "Install required software",
+            "commands": [
+              "Download and install Node.js 16+ from https://nodejs.org",
+              "Verify installation: node --version && npm --version",
+              "Install Git from https://git-scm.com (if not already installed)"
+            ],
+            "expected_output": "Node.js version 16.x.x or higher, npm version 8.x.x or higher"
+          },
+          {
+            "step": 2,
+            "title": "Download the Launcher Code",
+            "description": "Get the launcher source code",
+            "commands": [
+              "git clone https://github.com/your-repo/fera-launcher.git",
+              "cd fera-launcher/launcher/desktop-client"
+            ],
+            "note": "Replace with your actual repository URL"
+          },
+          {
+            "step": 3,
+            "title": "Install Dependencies",
+            "description": "Install all required packages",
+            "commands": [
+              "npm install"
+            ],
+            "expected_output": "All packages installed successfully without errors",
+            "troubleshooting": {
+              "common_issues": [
+                {
+                  "issue": "npm install fails",
+                  "solution": "Try: npm install --legacy-peer-deps"
+                },
+                {
+                  "issue": "Permission denied on Linux/Mac",
+                  "solution": "Use: sudo npm install -g npm"
+                }
+              ]
+            }
+          },
+          {
+            "step": 4,
+            "title": "Configure Backend URLs",
+            "description": "Set up your Fera backend connection",
+            "file": "src/main.js",
+            "edit_section": "FERA_CONFIG",
+            "example_config": {
+              "API_BASE_URL": "https://api.fera.gg",
+              "GAME_CDN_URL": "https://cdn.fera.gg",
+              "WEBSOCKET_URL": "wss://ws.fera.gg",
+              "DISCORD_CLIENT_ID": "your-discord-app-id"
+            },
+            "note": "Replace URLs with your actual backend endpoints"
+          },
+          {
+            "step": 5,
+            "title": "Test in Development Mode",
+            "description": "Run the launcher in development mode",
+            "commands": [
+              "npm run dev"
+            ],
+            "expected_output": "Fera Launcher window opens with splash screen, then main interface"
+          },
+          {
+            "step": 6,
+            "title": "Build for Distribution",
+            "description": "Create production builds for your players",
+            "commands": [
+              "npm run build-win    # For Windows",
+              "npm run build-mac    # For macOS", 
+              "npm run build-linux  # For Linux",
+              "npm run build        # For all platforms"
+            ],
+            "output_location": "dist/ folder contains installer files"
+          }
+        ]
+      },
+      {
+        "id": "player_download",
+        "title": "📥 Player Download Guide",
+        "description": "How players download and install the Fera Launcher",
+        "steps": [
+          {
+            "step": 1,
+            "title": "Visit the Download Page",
+            "description": "Go to the official Fera website",
+            "url": "https://fera.gg/download",
+            "note": "Always download from official sources only"
+          },
+          {
+            "step": 2,
+            "title": "Choose Your Platform",
+            "description": "Select the correct version for your operating system",
+            "options": [
+              {
+                "platform": "Windows",
+                "file": "Fera-Launcher-Setup-1.0.0.exe",
+                "size": "~80MB",
+                "requirements": "Windows 10 64-bit or newer"
+              },
+              {
+                "platform": "macOS",
+                "file": "Fera-Launcher-1.0.0.dmg",
+                "size": "~90MB",
+                "requirements": "macOS 10.15 (Catalina) or newer"
+              },
+              {
+                "platform": "Linux",
+                "file": "Fera-Launcher-1.0.0.AppImage",
+                "size": "~85MB",
+                "requirements": "Ubuntu 18.04+ or equivalent"
+              }
+            ]
+          },
+          {
+            "step": 3,
+            "title": "Download and Install",
+            "description": "Download and run the installer",
+            "platforms": {
+              "windows": {
+                "instructions": [
+                  "Download the .exe file",
+                  "Right-click and 'Run as Administrator'",
+                  "Follow the installation wizard",
+                  "Choose installation directory (default recommended)",
+                  "Wait for installation to complete"
+                ],
+                "default_path": "C:\\Users\\[Username]\\AppData\\Local\\Programs\\Fera Launcher"
+              },
+              "macos": {
+                "instructions": [
+                  "Download the .dmg file", 
+                  "Double-click to mount the disk image",
+                  "Drag Fera Launcher to Applications folder",
+                  "If security warning appears, go to System Preferences > Security & Privacy > Allow"
+                ],
+                "default_path": "/Applications/Fera Launcher.app"
+              },
+              "linux": {
+                "instructions": [
+                  "Download the .AppImage file",
+                  "Make it executable: chmod +x Fera-Launcher-1.0.0.AppImage",
+                  "Double-click to run, or use terminal: ./Fera-Launcher-1.0.0.AppImage"
+                ],
+                "note": "No installation required for AppImage"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "first_time_setup",
+        "title": "🚀 First Time Setup",
+        "description": "Setting up the launcher for first use",
+        "steps": [
+          {
+            "step": 1,
+            "title": "Launch the Application",
+            "description": "Start Fera Launcher",
+            "what_to_expect": [
+              "Splash screen with Fera logo appears",
+              "Loading bar progresses",
+              "Main launcher interface opens",
+              "Home tab is selected by default"
+            ]
+          },
+          {
+            "step": 2,
+            "title": "Create Account or Login",
+            "description": "Set up your Fera account",
+            "options": [
+              {
+                "option": "New User",
+                "steps": [
+                  "Click 'Login' button in the Profile tab",
+                  "Click 'Don't have an account? Register'",
+                  "Complete registration on the website",
+                  "Return to launcher and login with new credentials"
+                ]
+              },
+              {
+                "option": "Existing User", 
+                "steps": [
+                  "Click 'Login' button",
+                  "Enter your email and password",
+                  "Check 'Remember me' if desired",
+                  "Click 'Login'"
+                ]
+              }
+            ]
+          },
+          {
+            "step": 3,
+            "title": "Select Game Directory",
+            "description": "Choose where to install the game files",
+            "instructions": [
+              "Go to the 'Play' tab",
+              "Click 'Select Directory' button",
+              "Choose a folder with at least 50GB free space",
+              "Recommended: Create new folder like 'C:\\Games\\Fera\\'",
+              "Click 'Select Directory' to confirm"
+            ],
+            "recommended_paths": {
+              "windows": "C:\\Games\\Fera\\",
+              "macos": "/Users/[Username]/Games/Fera/",
+              "linux": "/home/[username]/Games/Fera/"
+            }
+          },
+          {
+            "step": 4,
+            "title": "Download Game Files",
+            "description": "Download the Fortnite Chapter 2 Season 5 files",
+            "instructions": [
+              "Click 'Download Game' button",
+              "Wait for download to complete (this may take 30-60 minutes)",
+              "Progress bar will show download status",
+              "Do not close the launcher during download"
+            ],
+            "download_info": {
+              "total_size": "~25GB",
+              "estimated_time": "30-60 minutes (depending on internet speed)",
+              "files_included": [
+                "Fortnite Chapter 2 Season 5 client",
+                "Custom Fera modifications",
+                "Asset files and textures",
+                "Anti-cheat components"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "using_launcher",
+        "title": "🎮 Using the Launcher",
+        "description": "Complete guide to launcher features",
+        "tabs": [
+          {
+            "tab": "Home",
+            "features": [
+              {
+                "feature": "Hero Section",
+                "description": "Welcome message and quick play button"
+              },
+              {
+                "feature": "Latest News",
+                "description": "Server updates, events, and announcements"
+              },
+              {
+                "feature": "Quick Actions",
+                "description": "Fast access to common functions"
+              }
+            ]
+          },
+          {
+            "tab": "Play",
+            "features": [
+              {
+                "feature": "Game Status",
+                "description": "Shows installation status, version, and file path"
+              },
+              {
+                "feature": "Server Selection",
+                "description": "Choose your region (NA, EU, Oceania) with player counts"
+              },
+              {
+                "feature": "Launch Game",
+                "description": "Start the game with anti-cheat protection"
+              }
+            ],
+            "how_to_play": [
+              "Ensure game status shows 'Installed'",
+              "Select your preferred server region",
+              "Click the large 'Launch Game' button",
+              "Wait for game to start (may take 1-2 minutes first time)",
+              "Enjoy your custom Fortnite experience!"
+            ]
+          },
+          {
+            "tab": "Shop",
+            "features": [
+              {
+                "feature": "Item Shop",
+                "description": "Browse and purchase cosmetics with V-Bucks"
+              },
+              {
+                "feature": "Rotation Timer",
+                "description": "See when new items will be available"
+              },
+              {
+                "feature": "Purchase System",
+                "description": "Buy items directly through the launcher"
+              }
+            ],
+            "how_to_shop": [
+              "Browse available items in the grid",
+              "Check V-Bucks prices for each item",
+              "Click 'Buy Now' on desired items",
+              "Confirm purchase in popup dialog",
+              "Items appear in your locker immediately"
+            ]
+          },
+          {
+            "tab": "Profile",
+            "features": [
+              {
+                "feature": "User Statistics",
+                "description": "View your wins, kills, and level"
+              },
+              {
+                "feature": "V-Bucks Balance",
+                "description": "Check your current V-Bucks amount"
+              },
+              {
+                "feature": "Cosmetics Collection",
+                "description": "View all your owned cosmetics"
+              }
+            ]
+          },
+          {
+            "tab": "Settings",
+            "features": [
+              {
+                "feature": "General Settings",
+                "description": "Auto-update, Discord RPC, notifications"
+              },
+              {
+                "feature": "Appearance",
+                "description": "Theme and language selection"
+              },
+              {
+                "feature": "About",
+                "description": "Version info and external links"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "premium_features",
+        "title": "⭐ Ryft Donator (Premium)",
+        "description": "Premium subscription benefits",
+        "tiers": [
+          {
+            "name": "Ryft Bronze",
+            "price": "$9.99/month",
+            "benefits": [
+              "Priority queue access",
+              "Exclusive Bronze cosmetics",
+              "Discord role and perks",
+              "Early access to new features"
+            ]
+          },
+          {
+            "name": "Ryft Silver", 
+            "price": "$19.99/month",
+            "benefits": [
+              "All Bronze benefits",
+              "Monthly V-Bucks allowance (1000)",
+              "Exclusive Silver cosmetics",
+              "Custom name colors",
+              "Beta feature access"
+            ]
+          },
+          {
+            "name": "Ryft Gold",
+            "price": "$39.99/month", 
+            "benefits": [
+              "All Silver benefits",
+              "Monthly V-Bucks allowance (2500)",
+              "Exclusive Gold cosmetics",
+              "Private server access",
+              "Direct developer contact"
+            ]
+          }
+        ],
+        "how_to_subscribe": [
+          "Visit the Shop tab in launcher",
+          "Click 'Ryft Donator' section",
+          "Choose your tier",
+          "Complete payment through secure portal",
+          "Benefits activate immediately"
+        ]
+      },
+      {
+        "id": "troubleshooting",
+        "title": "🔧 Troubleshooting",
+        "description": "Solutions to common issues",
+        "common_issues": [
+          {
+            "issue": "Launcher won't start",
+            "symptoms": ["Application doesn't open", "Splash screen appears then disappears"],
+            "solutions": [
+              "Restart your computer",
+              "Run as Administrator (Windows)",
+              "Check antivirus isn't blocking the application",
+              "Reinstall the launcher",
+              "Check system requirements are met"
+            ]
+          },
+          {
+            "issue": "Can't login",
+            "symptoms": ["Invalid credentials error", "Connection failed message"],
+            "solutions": [
+              "Check your internet connection",
+              "Verify email and password are correct",
+              "Try resetting your password",
+              "Check if servers are online (Discord announcements)",
+              "Clear launcher cache in Settings"
+            ]
+          },
+          {
+            "issue": "Game won't download",
+            "symptoms": ["Download fails", "Progress bar stuck", "Connection errors"],
+            "solutions": [
+              "Check available disk space (need 50GB free)",
+              "Restart the launcher",
+              "Disable antivirus temporarily",
+              "Check firewall settings",
+              "Try different download server in Settings"
+            ]
+          },
+          {
+            "issue": "Game won't launch",
+            "symptoms": ["Nothing happens when clicking Launch", "Game crashes on startup"],
+            "solutions": [
+              "Verify game files in Play tab",
+              "Run launcher as Administrator",
+              "Update graphics drivers",
+              "Close other games/programs",
+              "Check Windows/DirectX updates"
+            ]
+          },
+          {
+            "issue": "Poor performance",
+            "symptoms": ["Low FPS", "Stuttering", "Lag"],
+            "solutions": [
+              "Lower graphics settings in-game",
+              "Close unnecessary programs",
+              "Update graphics drivers",
+              "Check for Windows updates",
+              "Choose closer server region"
+            ]
+          }
+        ],
+        "getting_help": {
+          "discord": {
+            "url": "https://discord.gg/TCpKNe8h",
+            "description": "Join our Discord for real-time support",
+            "channels": ["#support", "#technical-help", "#bug-reports"]
+          },
+          "website": {
+            "url": "https://fera.gg/support",
+            "description": "Submit tickets and browse FAQ"
+          },
+          "email": "support@fera.gg"
+        }
+      },
+      {
+        "id": "system_requirements",
+        "title": "💻 System Requirements",
+        "description": "Minimum and recommended specifications",
+        "launcher_requirements": {
+          "minimum": {
+            "os": "Windows 10 64-bit / macOS 10.15 / Ubuntu 18.04",
+            "ram": "4GB",
+            "storage": "500MB",
+            "internet": "Broadband connection"
+          },
+          "recommended": {
+            "os": "Windows 11 / macOS 12+ / Ubuntu 20.04+",
+            "ram": "8GB",
+            "storage": "1GB SSD space",
+            "internet": "High-speed broadband"
+          }
+        },
+        "game_requirements": {
+          "minimum": {
+            "os": "Windows 10 64-bit",
+            "processor": "Intel Core i3-3225 / AMD FX-4350",
+            "memory": "8GB RAM",
+            "graphics": "Intel HD 4000 / AMD Radeon HD 7870",
+            "directx": "Version 11",
+            "storage": "50GB available space",
+            "internet": "Broadband connection"
+          },
+          "recommended": {
+            "os": "Windows 11 64-bit",
+            "processor": "Intel Core i5-7300U / AMD FX-8350",
+            "memory": "16GB RAM", 
+            "graphics": "NVIDIA GTX 1060 / AMD RX 580",
+            "directx": "Version 12",
+            "storage": "50GB SSD space",
+            "internet": "High-speed broadband"
+          }
+        }
+      },
+      {
+        "id": "updates_changelog",
+        "title": "📋 Updates & Changelog",
+        "description": "Latest updates and version history",
+        "auto_updates": {
+          "description": "Launcher automatically checks for updates",
+          "frequency": "Every startup and daily while running",
+          "process": [
+            "Update notification appears when available",
+            "Click 'Update Now' to download",
+            "Launcher restarts automatically",
+            "Changes take effect immediately"
+          ]
+        },
+        "version_history": [
+          {
+            "version": "1.0.0",
+            "date": "2024-01-15",
+            "type": "Initial Release",
+            "changes": [
+              "Complete launcher implementation",
+              "User authentication system",
+              "Game download and management",
+              "Item shop integration",
+              "Multi-region server support",
+              "Ryft Donator premium system"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "security_privacy",
+        "title": "🔒 Security & Privacy",
+        "description": "How we protect your data and account",
+        "security_features": [
+          "End-to-end encrypted authentication",
+          "Secure token-based sessions",
+          "Local data encryption",
+          "No password storage (hashed only)",
+          "Regular security audits"
+        ],
+        "privacy_policy": {
+          "data_collection": [
+            "Account information (email, username)",
+            "Game statistics and progress",
+            "Purchase history",
+            "Launcher usage analytics (anonymous)"
+          ],
+          "data_usage": [
+            "Provide game services",
+            "Process purchases",
+            "Improve user experience", 
+            "Customer support"
+          ],
+          "data_sharing": "We never sell or share personal data with third parties"
+        },
+        "account_security": {
+          "tips": [
+            "Use a strong, unique password",
+            "Never share your login credentials",
+            "Log out on shared computers",
+            "Report suspicious activity immediately"
+          ],
+          "two_factor": "Two-factor authentication coming in future update"
+        }
+      }
+    ],
+    "quick_links": {
+      "download": "https://fera.gg/download",
+      "discord": "https://discord.gg/TCpKNe8h",
+      "website": "https://fera.gg",
+      "support": "https://fera.gg/support",
+      "status": "https://status.fera.gg"
+    },
+    "contact": {
+      "support_email": "support@fera.gg",
+      "business_email": "business@fera.gg",
+      "discord": "https://discord.gg/TCpKNe8h"
+    }
+  }
+}
