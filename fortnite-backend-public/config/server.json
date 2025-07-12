@@ -1,0 +1,70 @@
+{
+  "server": {
+    "name": "Fortnite Private Server",
+    "version": "1.0.0",
+    "port": 3000,
+    "host": "0.0.0.0",
+    "environment": "production",
+    "max_players": 100,
+    "region": "NA-EAST"
+  },
+  "database": {
+    "type": "postgresql",
+    "host": "localhost",
+    "port": 5432,
+    "name": "fortnite_backend",
+    "username": "fortnite_user",
+    "password": "your_password_here",
+    "ssl": false,
+    "pool": {
+      "min": 2,
+      "max": 10
+    }
+  },
+  "redis": {
+    "host": "localhost",
+    "port": 6379,
+    "password": "",
+    "db": 0
+  },
+  "security": {
+    "jwt_secret": "your_jwt_secret_here_change_this",
+    "jwt_expires_in": "24h",
+    "bcrypt_rounds": 12,
+    "rate_limit": {
+      "enabled": true,
+      "window_ms": 900000,
+      "max_requests": 100
+    },
+    "cors": {
+      "enabled": true,
+      "origins": ["http://localhost:3000", "https://yourdomain.com"]
+    }
+  },
+  "game": {
+    "chapter": 2,
+    "season": 5,
+    "build_version": "15.50",
+    "lobby_timeout": 120,
+    "match_timeout": 1500,
+    "spectator_enabled": true,
+    "building_enabled": true,
+    "turbo_building": true
+  },
+  "features": {
+    "item_shop_enabled": true,
+    "battle_pass_enabled": true,
+    "creative_mode": true,
+    "arena_mode": true,
+    "party_system": true,
+    "friend_system": true,
+    "stats_tracking": true,
+    "replay_system": true
+  },
+  "logging": {
+    "level": "info",
+    "file": "./logs/server.log",
+    "max_size": "10mb",
+    "max_files": 5
+  }
+}

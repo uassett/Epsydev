@@ -1,0 +1,268 @@
+{
+  "itemshop": {
+    "rotation_schedule": {
+      "enabled": true,
+      "rotation_interval_hours": 24,
+      "next_rotation": "2024-12-19T00:00:00Z"
+    },
+    "currency": {
+      "vbucks_enabled": true,
+      "gold_bars_enabled": true,
+      "starter_vbucks": 800,
+      "starter_gold_bars": 1000
+    },
+    "featured_section": {
+      "enabled": true,
+      "max_items": 6,
+      "items": [
+        {
+          "id": "CID_694_Athena_Commando_M_MandalorianSeason",
+          "name": "The Mandalorian",
+          "type": "outfit",
+          "rarity": "legendary",
+          "price": 1500,
+          "currency": "vbucks",
+          "description": "This is the Way.",
+          "set": "The Mandalorian Set",
+          "featured": true,
+          "available_until": "2024-12-25T00:00:00Z",
+          "bundle_items": ["BID_001_MandalorianBundle", "PICKAXE_001_Beskar"]
+        },
+        {
+          "id": "CID_695_Athena_Commando_M_Mancake",
+          "name": "Mancake",
+          "type": "outfit",
+          "rarity": "epic",
+          "price": 1200,
+          "currency": "vbucks",
+          "description": "Stack 'em high.",
+          "set": "Short Stack Set",
+          "featured": true
+        },
+        {
+          "id": "WID_Assault_Auto_Athena_SR_Ore_T03",
+          "name": "Amban Sniper Rifle",
+          "type": "weapon",
+          "rarity": "exotic",
+          "price": 500,
+          "currency": "gold_bars",
+          "description": "Mandalorian exotic weapon.",
+          "npc_vendor": "Mando",
+          "location": "Razor Crest"
+        }
+      ]
+    },
+    "daily_section": {
+      "enabled": true,
+      "max_items": 8,
+      "items": [
+        {
+          "id": "CID_696_Athena_Commando_M_Kondor",
+          "name": "Kondor",
+          "type": "outfit",
+          "rarity": "epic",
+          "price": 1200,
+          "currency": "vbucks",
+          "description": "Shadow warrior."
+        },
+        {
+          "id": "CID_697_Athena_Commando_F_Lexa",
+          "name": "Lexa",
+          "type": "outfit",
+          "rarity": "epic",
+          "price": 1200,
+          "currency": "vbucks",
+          "description": "Anime hunter."
+        },
+        {
+          "id": "CID_698_Athena_Commando_F_Reese",
+          "name": "Reese",
+          "type": "outfit",
+          "rarity": "rare",
+          "price": 800,
+          "currency": "vbucks",
+          "description": "Tech specialist."
+        },
+        {
+          "id": "PICKAXE_002_DragonSlash",
+          "name": "Dragon Slash",
+          "type": "pickaxe",
+          "rarity": "rare",
+          "price": 800,
+          "currency": "vbucks",
+          "description": "Slice through anything."
+        },
+        {
+          "id": "GLIDER_001_Imperial",
+          "name": "Imperial Shuttle",
+          "type": "glider",
+          "rarity": "epic",
+          "price": 1000,
+          "currency": "vbucks",
+          "description": "Glide with the Empire."
+        },
+        {
+          "id": "EMOTE_001_Grogu",
+          "name": "Child's Play",
+          "type": "emote",
+          "rarity": "rare",
+          "price": 500,
+          "currency": "vbucks",
+          "description": "Force powers activated."
+        }
+      ]
+    },
+    "exotic_weapons": {
+      "enabled": true,
+      "npc_vendors": [
+        {
+          "npc_id": "NPC_Mando",
+          "name": "The Mandalorian",
+          "location": "Razor Crest",
+          "weapons": [
+            {
+              "id": "WID_Assault_Auto_Athena_SR_Ore_T03",
+              "name": "Amban Sniper Rifle",
+              "price": 500,
+              "currency": "gold_bars",
+              "stock": 1,
+              "description": "High-damage sniper rifle with disintegration rounds."
+            }
+          ]
+        },
+        {
+          "npc_id": "NPC_Mancake",
+          "name": "Mancake",
+          "location": "Butter Barn",
+          "weapons": [
+            {
+              "id": "WID_Shotgun_Break_Athena_VR_Ore_T03",
+              "name": "Boom Sniper Rifle",
+              "price": 600,
+              "currency": "gold_bars",
+              "stock": 1,
+              "description": "Explosive sniper rifle."
+            }
+          ]
+        },
+        {
+          "npc_id": "NPC_Kondor",
+          "name": "Kondor",
+          "location": "Stealthy Stronghold",
+          "weapons": [
+            {
+              "id": "WID_Shotgun_SemiAuto_Athena_VR_Ore_T03",
+              "name": "Dragon's Breath Shotgun",
+              "price": 400,
+              "currency": "gold_bars",
+              "stock": 1,
+              "description": "Shotgun that ignites enemies."
+            }
+          ]
+        },
+        {
+          "npc_id": "NPC_Lexa",
+          "name": "Lexa",
+          "location": "Hunter's Haven",
+          "weapons": [
+            {
+              "id": "WID_Pistol_SemiAuto_Athena_VR_Ore_T03",
+              "name": "Night Hawk",
+              "price": 225,
+              "currency": "gold_bars",
+              "stock": 1,
+              "description": "Marks enemies through walls."
+            }
+          ]
+        },
+        {
+          "npc_id": "NPC_Reese",
+          "name": "Reese",
+          "location": "Dirty Docks",
+          "weapons": [
+            {
+              "id": "WID_Pistol_AutoHeavy_Athena_VR_Ore_T03",
+              "name": "Hop Rock Dualies",
+              "price": 400,
+              "currency": "gold_bars",
+              "stock": 1,
+              "description": "Dual pistols with low gravity effect."
+            }
+          ]
+        }
+      ]
+    },
+    "bundles": {
+      "enabled": true,
+      "available_bundles": [
+        {
+          "id": "BUNDLE_001_Mandalorian",
+          "name": "The Mandalorian Bundle",
+          "price": 2800,
+          "currency": "vbucks",
+          "discount_percent": 15,
+          "items": [
+            "CID_694_Athena_Commando_M_MandalorianSeason",
+            "BID_001_MandalorianBundle",
+            "PICKAXE_001_Beskar",
+            "GLIDER_001_Imperial",
+            "EMOTE_001_Grogu"
+          ],
+          "description": "Complete Mandalorian set with exclusive items."
+        },
+        {
+          "id": "BUNDLE_002_Season5Heroes",
+          "name": "Season 5 Heroes Pack",
+          "price": 3500,
+          "currency": "vbucks",
+          "discount_percent": 20,
+          "items": [
+            "CID_695_Athena_Commando_M_Mancake",
+            "CID_696_Athena_Commando_M_Kondor",
+            "CID_697_Athena_Commando_F_Lexa",
+            "CID_698_Athena_Commando_F_Reese"
+          ],
+          "description": "All Season 5 battle pass heroes."
+        }
+      ]
+    },
+    "battlepass": {
+      "enabled": true,
+      "season": 5,
+      "chapter": 2,
+      "price": 950,
+      "currency": "vbucks",
+      "max_tier": 100,
+      "free_tiers": [1, 2, 3, 8, 13, 18, 23, 28, 33, 38, 43, 48, 53, 58, 63, 68, 73, 78, 83, 88, 93, 98],
+      "premium_rewards": {
+        "1": {"type": "outfit", "id": "CID_695_Athena_Commando_M_Mancake"},
+        "20": {"type": "outfit", "id": "CID_696_Athena_Commando_M_Kondor"},
+        "40": {"type": "outfit", "id": "CID_697_Athena_Commando_F_Lexa"},
+        "60": {"type": "outfit", "id": "CID_698_Athena_Commando_F_Reese"},
+        "100": {"type": "outfit", "id": "CID_699_Athena_Commando_M_Zero"}
+      }
+    },
+    "pricing_tiers": {
+      "common": {"min": 200, "max": 500},
+      "uncommon": {"min": 300, "max": 800},
+      "rare": {"min": 800, "max": 1200},
+      "epic": {"min": 1200, "max": 1500},
+      "legendary": {"min": 1500, "max": 2000},
+      "mythic": {"min": 2000, "max": 3000}
+    },
+    "gold_bars": {
+      "enabled": true,
+      "sources": [
+        "eliminations",
+        "opening_vaults",
+        "completing_bounties",
+        "finding_safes",
+        "purchasing_with_vbucks"
+      ],
+      "conversion_rate": {
+        "vbucks_to_gold": 10,
+        "gold_to_vbucks": 0.1
+      }
+    }
+  }
+}
