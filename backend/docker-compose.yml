@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  # Epo Backend API
+  epo-backend:
+    build: .
+    container_name: epo-backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=epo_database
+      - DB_USER=epo_user
+      - DB_PASSWORD=epo_secure_password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - JWT_SECRET=your_super_secure_jwt_secret_change_this_in_production
+      - JWT_REFRESH_SECRET=your_super_secure_refresh_secret_change_this_in_production
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - epo-network
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: epo-postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=epo_database
+      - POSTGRES_USER=epo_user
+      - POSTGRES_PASSWORD=epo_secure_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    networks:
+      - epo-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: epo-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - epo-network
+
+  # Nginx Reverse Proxy (Optional)
+  nginx:
+    image: nginx:alpine
+    container_name: epo-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - epo-backend
+    networks:
+      - epo-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  epo-network:
+    driver: bridge
